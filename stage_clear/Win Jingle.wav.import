@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://clyxlqkcqcso8"
+path="res://.godot/imported/Win Jingle.wav-6f6c6152bc76f9250a66d170fbd577bf.sample"
+
+[deps]
+
+source_file="res://stage_clear/Win Jingle.wav"
+dest_files=["res://.godot/imported/Win Jingle.wav-6f6c6152bc76f9250a66d170fbd577bf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

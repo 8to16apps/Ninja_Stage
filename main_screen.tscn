@@ -1,0 +1,710 @@
+[gd_scene load_steps=40 format=3 uid="uid://byhl3h2orksnv"]
+
+[ext_resource type="Texture2D" uid="uid://da1muqc2nlech" path="res://background.png" id="1_7i27i"]
+[ext_resource type="Script" path="res://state_machine/StateMachine.gd" id="2_6kiul"]
+[ext_resource type="Script" path="res://title/title.gd" id="3_btg1v"]
+[ext_resource type="Texture2D" uid="uid://d161jccd6dh6r" path="res://title/textfx.png" id="4_6yyu8"]
+[ext_resource type="Texture2D" uid="uid://6q61v5nlw4ww" path="res://title/ninja.png" id="5_equxo"]
+[ext_resource type="Script" path="res://utils/press_shoot.gd" id="6_thao2"]
+[ext_resource type="AudioStream" uid="uid://bwhoooirchgdy" path="res://title/BossMain.wav" id="7_bb8f7"]
+[ext_resource type="Script" path="res://hud/UI.gd" id="8_en5v7"]
+[ext_resource type="Script" path="res://game/state_game.gd" id="9_qm1i7"]
+[ext_resource type="Script" path="res://game/game.gd" id="10_ux61q"]
+[ext_resource type="PackedScene" uid="uid://lxwnxfuv0vi8" path="res://shuriken/shuriken.tscn" id="11_phkpx"]
+[ext_resource type="PackedScene" uid="uid://dr2rit4uwqjbq" path="res://ninja/ninja.tscn" id="12_hgwxy"]
+[ext_resource type="PackedScene" uid="uid://cpts04bdarses" path="res://Hit/hit.tscn" id="13_txng3"]
+[ext_resource type="PackedScene" uid="uid://gpwdwkw7pjfk" path="res://hand/hand.tscn" id="14_bcijg"]
+[ext_resource type="AudioStream" uid="uid://8e5e2vgwd4qs" path="res://game/music/Mercury.wav" id="15_snnha"]
+[ext_resource type="Script" path="res://game/Audio.gd" id="16_yywo2"]
+[ext_resource type="Script" path="res://ninja_punch/ninja_punch.gd" id="17_ccx1y"]
+[ext_resource type="Texture2D" uid="uid://uc4d7g3sugqk" path="res://ninja/ninjas_sheet.png" id="18_36dxr"]
+[ext_resource type="AudioStream" uid="uid://cqrmyut1xw2iv" path="res://ninja_punch/Warp Jingle.wav" id="19_xot1o"]
+[ext_resource type="AudioStream" uid="uid://bvwvrccnue2rc" path="res://Hit/sfx/impact-2.ogg" id="20_bxage"]
+[ext_resource type="Script" path="res://stage_clear/stage_clear.gd" id="21_lgmv8"]
+[ext_resource type="Texture2D" uid="uid://cdbfxvp6d015k" path="res://stage_clear/text_img.png" id="22_gjsip"]
+[ext_resource type="AudioStream" uid="uid://clyxlqkcqcso8" path="res://stage_clear/Win Jingle.wav" id="23_yd5mu"]
+[ext_resource type="Script" path="res://game_over/game_over.gd" id="24_kjj6b"]
+[ext_resource type="Texture2D" uid="uid://ocwpnhsg5n4k" path="res://game_over/text_img.png" id="25_c2rsx"]
+[ext_resource type="AudioStream" uid="uid://dfkmmvnu2mnr1" path="res://game_over/vgdeathsound.ogg" id="26_8o4gq"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ieyvx"]
+script = ExtResource("6_thao2")
+
+[sub_resource type="Animation" id="Animation_biojp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title_ui/title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(112, 367)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title_ui/ninja:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(340, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("title_ui/press_shoot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_xbunr"]
+resource_name = "title_enter"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title_ui/title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(112, -108), Vector2(112, 367)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title_ui/ninja:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46),
+"transitions": PackedFloat32Array(2.2974, 1),
+"update": 0,
+"values": [Vector2(340, 533), Vector2(340, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("title_ui/press_shoot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.366022),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mieul"]
+_data = {
+"RESET": SubResource("Animation_biojp"),
+"title_enter": SubResource("Animation_xbunr")
+}
+
+[sub_resource type="Animation" id="Animation_8met5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(519, 398)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0rjqd"]
+resource_name = "enter"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(519, 681), Vector2(519, 398), Vector2(519, 398)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ninja_win")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("19_xot1o")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_bxage")
+}],
+"times": PackedFloat32Array(0, 2.1)
+}
+tracks/2/use_blend = true
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_ninja_win_finished"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n807t"]
+_data = {
+"RESET": SubResource("Animation_8met5"),
+"enter": SubResource("Animation_0rjqd")
+}
+
+[sub_resource type="Animation" id="Animation_5pibg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(112, -185)]
+}
+
+[sub_resource type="Animation" id="Animation_crmln"]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/TextureRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(112, -185), Vector2(112, 264), Vector2(112, 205.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ieebi"]
+_data = {
+"RESET": SubResource("Animation_5pibg"),
+"enter": SubResource("Animation_crmln")
+}
+
+[sub_resource type="Animation" id="Animation_5kqa3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/TextureRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b1uok"]
+resource_name = "enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/TextureRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_127sf"]
+_data = {
+"RESET": SubResource("Animation_5kqa3"),
+"enter": SubResource("Animation_b1uok")
+}
+
+[node name="Main" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_7i27i")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="state_machine" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_6kiul")
+initial_state = NodePath("title")
+
+[node name="title" type="Node" parent="state_machine"]
+script = ExtResource("3_btg1v")
+
+[node name="TitleLayer" type="CanvasLayer" parent="state_machine/title"]
+layer = 5
+visible = false
+
+[node name="title_ui" type="Control" parent="state_machine/title/TitleLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="imagen_credit" type="RichTextLabel" parent="state_machine/title/TitleLayer/title_ui"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center][url=\"https://www.freepik.com/free-vector/cute-ninja-throwing-shuriken-cartoon-vector-icon-illustration-people-holiday-icon-concept-isolated_63058607.htm\"]Image by catalyststuff[/url] on Freepik[/center]
+[center][url=\"https://opengameart.org/users/sketchylogic\"]Music by SketchyLogic[/url] on OpenGameArt.org[/center]"
+
+[node name="title" type="TextureRect" parent="state_machine/title/TitleLayer/title_ui"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -209.0
+offset_right = 400.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_6yyu8")
+
+[node name="ninja" type="TextureRect" parent="state_machine/title/TitleLayer/title_ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -248.0
+offset_right = 168.0
+offset_bottom = 92.0001
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(170, 170)
+texture = ExtResource("5_equxo")
+stretch_mode = 5
+
+[node name="press_shoot" type="RichTextLabel" parent="state_machine/title/TitleLayer/title_ui"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -106.0
+offset_right = 95.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center][pulse color=#ffffff33 freq=1.0 ease=-2.0 height=0]Press Shoot[/pulse][/center]"
+custom_effects = [SubResource("RichTextEffect_ieyvx")]
+
+[node name="titleMusic" type="AudioStreamPlayer" parent="state_machine/title/TitleLayer"]
+stream = ExtResource("7_bb8f7")
+
+[node name="title_anim" type="AnimationPlayer" parent="state_machine/title/TitleLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_mieul")
+}
+
+[node name="HUDLayer" type="CanvasLayer" parent="state_machine/title"]
+layer = 2
+visible = false
+
+[node name="UI" type="Control" parent="state_machine/title/HUDLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_en5v7")
+
+[node name="Lifes" type="Control" parent="state_machine/title/HUDLayer/UI"]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="state_machine/title/HUDLayer/UI/Lifes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Life0" type="ColorRect" parent="state_machine/title/HUDLayer/UI/Lifes/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Life1" type="ColorRect" parent="state_machine/title/HUDLayer/UI/Lifes/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Life2" type="ColorRect" parent="state_machine/title/HUDLayer/UI/Lifes/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Stage" type="Label" parent="state_machine/title/HUDLayer/UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "STAGE: 0"
+horizontal_alignment = 1
+
+[node name="stage_progress" type="ProgressBar" parent="state_machine/title/HUDLayer/UI/Stage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -9.0
+offset_right = 108.0
+grow_horizontal = 2
+grow_vertical = 0
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Points" type="Label" parent="state_machine/title/HUDLayer/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 34.0
+grow_horizontal = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="game" type="Node" parent="state_machine"]
+script = ExtResource("9_qm1i7")
+
+[node name="GameLayer" type="CanvasLayer" parent="state_machine/game"]
+process_mode = 1
+visible = false
+
+[node name="Game" type="Node2D" parent="state_machine/game/GameLayer"]
+script = ExtResource("10_ux61q")
+shuriken_prefab = ExtResource("11_phkpx")
+ninja_prefab = ExtResource("12_hgwxy")
+hit_prefab = ExtResource("13_txng3")
+
+[node name="ninjas" type="Node2D" parent="state_machine/game/GameLayer/Game"]
+y_sort_enabled = true
+
+[node name="Hand" parent="state_machine/game/GameLayer/Game" instance=ExtResource("14_bcijg")]
+position = Vector2(513, 576)
+metadata/_edit_lock_ = true
+
+[node name="left_far_y_marker" type="Marker2D" parent="state_machine/game/GameLayer/Game"]
+position = Vector2(0, 132)
+metadata/_edit_lock_ = true
+
+[node name="left_mid_y_marker" type="Marker2D" parent="state_machine/game/GameLayer/Game"]
+position = Vector2(0, 332)
+metadata/_edit_lock_ = true
+
+[node name="right_far_y_marker" type="Marker2D" parent="state_machine/game/GameLayer/Game"]
+position = Vector2(1024, 132)
+metadata/_edit_lock_ = true
+
+[node name="right_mid_y_marker" type="Marker2D" parent="state_machine/game/GameLayer/Game"]
+position = Vector2(1024, 332)
+metadata/_edit_lock_ = true
+
+[node name="game_music" type="AudioStreamPlayer" parent="state_machine/game/GameLayer"]
+stream = ExtResource("15_snnha")
+volume_db = -6.0
+
+[node name="Ninja_hit" type="AudioStreamPlayer" parent="state_machine/game/GameLayer"]
+script = ExtResource("16_yywo2")
+
+[node name="ninja_punch" type="Node" parent="state_machine"]
+script = ExtResource("17_ccx1y")
+
+[node name="ninjaLayer" type="CanvasLayer" parent="state_machine/ninja_punch"]
+layer = 3
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="state_machine/ninja_punch/ninjaLayer"]
+position = Vector2(519, 398)
+texture = ExtResource("18_36dxr")
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="Ninja_win" type="AudioStreamPlayer" parent="state_machine/ninja_punch/ninjaLayer"]
+
+[node name="ninja_punch_anim" type="AnimationPlayer" parent="state_machine/ninja_punch/ninjaLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_n807t")
+}
+
+[node name="press_shoot" type="RichTextLabel" parent="state_machine/ninja_punch/ninjaLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -40.0
+offset_right = 95.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center][pulse color=#ffffff33 freq=1.0 ease=-2.0 height=0]Press Shoot[/pulse][/center]"
+custom_effects = [SubResource("RichTextEffect_ieyvx")]
+
+[node name="stage_clear" type="Node" parent="state_machine"]
+process_mode = 3
+script = ExtResource("21_lgmv8")
+
+[node name="stageClearLayer" type="CanvasLayer" parent="state_machine/stage_clear"]
+layer = 3
+visible = false
+
+[node name="UI" type="Control" parent="state_machine/stage_clear/stageClearLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="state_machine/stage_clear/stageClearLayer/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -473.0
+offset_right = 400.0
+offset_bottom = -308.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 82)
+texture = ExtResource("22_gjsip")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="press_shoot" type="RichTextLabel" parent="state_machine/stage_clear/stageClearLayer/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -142.0
+offset_right = 95.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center][pulse color=#ffffff33 freq=1.0 ease=-2.0 height=0]Press Shoot[/pulse][/center]"
+custom_effects = [SubResource("RichTextEffect_ieyvx")]
+
+[node name="Ninja_lose" type="AudioStreamPlayer" parent="state_machine/stage_clear/stageClearLayer"]
+stream = ExtResource("23_yd5mu")
+
+[node name="stage_clear_anim" type="AnimationPlayer" parent="state_machine/stage_clear/stageClearLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_ieebi")
+}
+
+[node name="game_over" type="Node" parent="state_machine"]
+process_mode = 3
+script = ExtResource("24_kjj6b")
+
+[node name="gameOverLayer" type="CanvasLayer" parent="state_machine/game_over"]
+layer = 3
+visible = false
+
+[node name="UI" type="Control" parent="state_machine/game_over/gameOverLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="state_machine/game_over/gameOverLayer/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -82.5
+offset_right = 400.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 82)
+texture = ExtResource("25_c2rsx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="imagen_credit" type="RichTextLabel" parent="state_machine/game_over/gameOverLayer/UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center][url=\"https://opengameart.org/content/8bit-death-whirl\"]Sound by Fupi[/url] on OpenGameArt.org[/center]"
+
+[node name="press_shoot" type="RichTextLabel" parent="state_machine/game_over/gameOverLayer/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -154.0
+offset_right = 99.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center][pulse color=#ffffff33 freq=1.0 ease=-2.0 height=0]Press Shoot[/pulse][/center]"
+custom_effects = [SubResource("RichTextEffect_ieyvx")]
+
+[node name="Player_lose" type="AudioStreamPlayer" parent="state_machine/game_over/gameOverLayer"]
+stream = ExtResource("26_8o4gq")
+
+[node name="game_over_anim" type="AnimationPlayer" parent="state_machine/game_over/gameOverLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_127sf")
+}
+
+[connection signal="meta_clicked" from="state_machine/title/TitleLayer/title_ui/imagen_credit" to="state_machine/title" method="_on_imagen_credit_meta_clicked"]
+[connection signal="shoot" from="state_machine/game/GameLayer/Game/Hand" to="state_machine/game/GameLayer/Game" method="_on_hand_shoot"]
+[connection signal="meta_clicked" from="state_machine/game_over/gameOverLayer/UI/imagen_credit" to="state_machine/game_over" method="_on_imagen_credit_meta_clicked"]

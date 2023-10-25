@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://lxwnxfuv0vi8"]
+
+[ext_resource type="Script" path="res://shuriken/shuriken.gd" id="1_3g3db"]
+[ext_resource type="Texture2D" uid="uid://527mctwbhqd0" path="res://shuriken/images/suriken_g149.png" id="2_07k5j"]
+[ext_resource type="Texture2D" uid="uid://ci4jv4kvadbwh" path="res://shuriken/images/suriken_g154.png" id="3_fi4iq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqhd3"]
+size = Vector2(262, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ycae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_07k5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fi4iq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="shuriken" type="Area2D" groups=["Ninja"]]
+process_mode = 1
+collision_layer = 2
+script = ExtResource("1_3g3db")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_dqhd3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ycae")
+autoplay = "default"
+frame_progress = 0.0491643

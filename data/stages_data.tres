@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="StageData" load_steps=13 format=3 uid="uid://u067lxf20l6r"]
+
+[ext_resource type="Script" path="res://data/stage_data.gd" id="1_7rvc7"]
+[ext_resource type="Script" path="res://data/stage.gd" id="2_wb2d3"]
+
+[sub_resource type="Resource" id="Resource_pfhxp"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 10
+spawn_delay = 1.0
+types_probability = Array[int]([100, 0, 0])
+distance_probability = Array[int]([100, 0])
+jump_probability = Array[int]([10, 1])
+
+[sub_resource type="Resource" id="Resource_x05ao"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 20
+spawn_delay = 1.0
+types_probability = Array[int]([90, 10, 0])
+distance_probability = Array[int]([95, 5])
+jump_probability = Array[int]([12, 2])
+
+[sub_resource type="Resource" id="Resource_l81hr"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 30
+spawn_delay = 1.0
+types_probability = Array[int]([80, 20, 0])
+distance_probability = Array[int]([90, 10])
+jump_probability = Array[int]([14, 3])
+
+[sub_resource type="Resource" id="Resource_o7e85"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 40
+spawn_delay = 1.0
+types_probability = Array[int]([70, 30, 0])
+distance_probability = Array[int]([85, 15])
+jump_probability = Array[int]([16, 4])
+
+[sub_resource type="Resource" id="Resource_231tn"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 50
+spawn_delay = 1.0
+types_probability = Array[int]([60, 40, 0])
+distance_probability = Array[int]([80, 20])
+jump_probability = Array[int]([20, 5])
+
+[sub_resource type="Resource" id="Resource_vf7xw"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 60
+spawn_delay = 1.0
+types_probability = Array[int]([50, 50, 0])
+distance_probability = Array[int]([75, 25])
+jump_probability = Array[int]([22, 6])
+
+[sub_resource type="Resource" id="Resource_d1jnv"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 70
+spawn_delay = 1.0
+types_probability = Array[int]([50, 30, 10])
+distance_probability = Array[int]([70, 30])
+jump_probability = Array[int]([25, 7])
+
+[sub_resource type="Resource" id="Resource_unc2b"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 80
+spawn_delay = 0.75
+types_probability = Array[int]([40, 30, 20])
+distance_probability = Array[int]([65, 35])
+jump_probability = Array[int]([25, 10])
+
+[sub_resource type="Resource" id="Resource_71ofj"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 90
+spawn_delay = 0.5
+types_probability = Array[int]([35, 30, 25])
+distance_probability = Array[int]([60, 40])
+jump_probability = Array[int]([30, 10])
+
+[sub_resource type="Resource" id="Resource_4urn8"]
+script = ExtResource("2_wb2d3")
+number_of_ninjas = 100
+spawn_delay = 0.25
+types_probability = Array[int]([34, 33, 33])
+distance_probability = Array[int]([55, 45])
+jump_probability = Array[int]([30, 15])
+
+[resource]
+script = ExtResource("1_7rvc7")
+stages = Array[ExtResource("2_wb2d3")]([SubResource("Resource_pfhxp"), SubResource("Resource_x05ao"), SubResource("Resource_l81hr"), SubResource("Resource_o7e85"), SubResource("Resource_231tn"), SubResource("Resource_vf7xw"), SubResource("Resource_d1jnv"), SubResource("Resource_unc2b"), SubResource("Resource_71ofj"), SubResource("Resource_4urn8")])

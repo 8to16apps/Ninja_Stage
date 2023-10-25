@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpts04bdarses"]
+
+[ext_resource type="Texture2D" uid="uid://bv2e2r065kba" path="res://Hit/hit.png" id="1_80kpv"]
+[ext_resource type="Script" path="res://Hit/hit.gd" id="2_62g4p"]
+
+[node name="hit" type="Sprite2D"]
+modulate = Color(0.611765, 0.239216, 0.239216, 1)
+texture = ExtResource("1_80kpv")
+script = ExtResource("2_62g4p")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]

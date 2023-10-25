@@ -1,0 +1,17 @@
+AnimatedSprite2D
+RichTextLabel
+AnimationPlayer
+Sprite2D
+CanvasLayer
+Node
+TextureRect
+ProgressBar
+AudioStreamPlayer
+Label
+Control
+HBoxContainer
+ColorRect
+Node2D
+Marker2D
+CollisionShape2D
+Area2D

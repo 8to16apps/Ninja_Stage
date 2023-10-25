@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://gpwdwkw7pjfk"]
+
+[ext_resource type="Texture2D" uid="uid://527mctwbhqd0" path="res://shuriken/images/suriken_g149.png" id="1_4p7kc"]
+[ext_resource type="Script" path="res://hand/hand.gd" id="1_blygq"]
+[ext_resource type="AudioStream" uid="uid://b7bwjr7hfanf" path="res://ninja/sfx/woosh-2.ogg" id="3_60unk"]
+
+[node name="Hand" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_blygq")
+spawn_limit = 5
+
+[node name="shuriken" type="Sprite2D" parent="."]
+texture = ExtResource("1_4p7kc")
+region_rect = Rect2(0.169037, 0, 278.748, 176.145)
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_60unk")
