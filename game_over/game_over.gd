@@ -7,6 +7,7 @@ extends "res://state_machine/State.gd"
 @onready var player_lose:AudioStreamPlayer = $gameOverLayer/Player_lose
 @onready var game_over_anim:AnimationPlayer = $gameOverLayer/game_over_anim
 
+@export var allow_continue:bool = false
 
 func _ready():
 	game_over_layer.visible = false
@@ -14,7 +15,7 @@ func _ready():
 
 # Virtual function. Receives events from the `_unhandled_input()` callback.
 func handle_input(_event: InputEvent) -> void:
-	if _event.is_action_pressed("shoot") and not game_over_anim.is_playing():
+	if _event.is_action_pressed("shoot") and allow_continue:
 		get_viewport().set_input_as_handled()
 		state_machine.transition_to("title")
 

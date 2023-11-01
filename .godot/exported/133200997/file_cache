@@ -1,6 +1,6 @@
-res://data/stages_data.tres::675ce5ac890a6ecb68cec3ed4f40328b::1698240418::res://.godot/exported/133200997/export-756a6b33a896e281e664ee08eb88e6c8-stages_data.res
-res://hand/hand.tscn::df034fbc6cad778b0e8e0f5c4bd5a75c::1698247655::res://.godot/exported/133200997/export-60c3f4a3913a5fce751d23d6ba3238e8-hand.scn
-res://Hit/hit.tscn::587b410fcdd8fc40aef8316b66829d05::1698232150::res://.godot/exported/133200997/export-e6ff2c0bd1444ab9d3c113b24163a415-hit.scn
-res://ninja/ninja.tscn::da57703347ee1348f30e5ee72172958b::1698247655::res://.godot/exported/133200997/export-b54850064f272dd59fa64f6b8d255a1c-ninja.scn
-res://shuriken/shuriken.tscn::b2e19003e411a5109a4b83f87c1f1a11::1698247655::res://.godot/exported/133200997/export-6531783bd964c7a3b29dafd4028d3685-shuriken.scn
-res://main_screen.tscn::47b68706772314feb8b5a4c0b5e7232f::1698247655::res://.godot/exported/133200997/export-5da8bd7fd7b6cf65f46607d9e1f80f99-main_screen.scn
+res://data/stages_data.tres::675ce5ac890a6ecb68cec3ed4f40328b::1698859289::res://.godot/exported/133200997/export-756a6b33a896e281e664ee08eb88e6c8-stages_data.res
+res://hand/hand.tscn::df034fbc6cad778b0e8e0f5c4bd5a75c::1698859615::res://.godot/exported/133200997/export-60c3f4a3913a5fce751d23d6ba3238e8-hand.scn
+res://Hit/hit.tscn::587b410fcdd8fc40aef8316b66829d05::1698228550::res://.godot/exported/133200997/export-e6ff2c0bd1444ab9d3c113b24163a415-hit.scn
+res://ninja/ninja.tscn::da57703347ee1348f30e5ee72172958b::1698859615::res://.godot/exported/133200997/export-b54850064f272dd59fa64f6b8d255a1c-ninja.scn
+res://shuriken/shuriken.tscn::b2e19003e411a5109a4b83f87c1f1a11::1698859615::res://.godot/exported/133200997/export-6531783bd964c7a3b29dafd4028d3685-shuriken.scn
+res://main_screen.tscn::cc0ffacd9a0243eaa338718b1fe6402e::1698859615::res://.godot/exported/133200997/export-5da8bd7fd7b6cf65f46607d9e1f80f99-main_screen.scn

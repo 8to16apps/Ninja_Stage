@@ -7,12 +7,14 @@ extends "res://state_machine/State.gd"
 @onready var ninja_lose:AudioStreamPlayer = $stageClearLayer/Ninja_lose
 @onready var stage_clear_anim:AnimationPlayer = $stageClearLayer/stage_clear_anim
 
+@export var allow_continue:bool = false
+
 func _ready():
 	stage_clear_layer.visible = false
 
 # Virtual function. Receives events from the `_unhandled_input()` callback.
 func handle_input(_event: InputEvent) -> void:
-	if _event.is_action_pressed("shoot") and not ninja_lose.playing:
+	if _event.is_action_pressed("shoot") and allow_continue:
 		get_viewport().set_input_as_handled()
 		state_machine.transition_to("game")
 
